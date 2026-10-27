@@ -26,8 +26,28 @@ section{padding:100px 8vw}.eyebrow{color:var(--gold);letter-spacing:3px;font-siz
 .design{display:grid;grid-template-columns:3fr 2fr;gap:30px;align-items:center}.design .dd{margin:0}.opts{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 18px}
 form{max-width:640px;margin:30px auto 0;display:grid;gap:12px}input,select{padding:14px;border-radius:8px;border:1px solid #2c4560;background:#13263b;color:#fff;font:15px Inter}
 footer{padding:30px 8vw;font-size:12px;opacity:.6}
+
+.burger{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+@media(max-width:760px){
+nav{padding:14px 18px}nav b{font-size:12px;letter-spacing:2px}
+nav div{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;background:rgba(13,27,42,.97);padding:10px 18px 18px}
+nav div.open{display:flex}nav div a{margin:10px 0;font-size:16px}nav .cta{text-align:center}
+.burger{display:block}
+#hero{height:400vh}#stage{height:100svh}
+.cap{left:20px;right:20px;bottom:12svh}.cap h1{font-size:38px}.cap p{font-size:16px}
+.btn{display:block;text-align:center;padding:16px}
+section{padding:64px 20px}h2{font-size:28px}
+.tag{font-size:9px;letter-spacing:1px;top:8px;right:8px}
+.dd{aspect-ratio:4/3}#ddr{height:36px}
+.map,.design{grid-template-columns:1fr;gap:18px}
+.lot{width:8%;font-size:10px}
+.models{overflow-x:auto;gap:8px}.models button{flex:0 0 auto;padding:10px 14px;font-size:13px}
+input,select{font-size:16px}
+.sticky{display:block}
+}
+.sticky{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;background:var(--gold);color:var(--navy);text-align:center;padding:15px;border-radius:40px;font-weight:600;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.4)}
 </style></head><body>
-<nav><b>LAKE CONROE COLLECTION</b><div><a href="#map">Lot Map</a><a href="#design">Models</a><a href="#area">The Area</a><a class="cta" href="#list">Join Priority List</a></div></nav>
+<nav><b>LAKE CONROE COLLECTION</b><button class="burger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">&#9776;</button><div onclick="this.classList.remove('open')"><a href="#map">Lot Map</a><a href="#design">Models</a><a href="#area">The Area</a><a class="cta" href="#list">Join Priority List</a></div></nav>
 <div id="hero"><div id="stage"><canvas id="cv"></canvas><img id="aer" src="aerial.jpg"><div class="shade"></div><span class="tag" id="tg">STOCK DRONE FOOTAGE, NOT LAKE CONROE</span>
 <div class="cap" data-a="0" data-b=".22"><h1>Be First at Lake Conroe</h1><p>13 new one-story homes, released in three phases.</p></div>
 <div class="cap" data-a=".25" data-b=".47"><h1>Minutes from the Water</h1><p>Wooded homesites near one of Texas's favorite lakes.</p></div>
@@ -50,11 +70,11 @@ footer{padding:30px 8vw;font-size:12px;opacity:.6}
 <select><option>Interested model (optional)</option><option>The Chartres</option><option>The Dauphine</option><option>The Decatur</option></select>
 <select><option>Timeline (optional)</option><option>0 to 3 months</option><option>3 to 6 months</option><option>6+ months</option></select>
 <select><option>Working with an agent? (optional)</option><option>Yes</option><option>No</option></select><button class="btn" style="border:0;cursor:pointer">Join the Priority List</button></form></section>
-<footer>MOCKUP ONLY. Drone footage is free stock (Mixkit), not the actual site. All home and aerial images are AI-generated concepts. No prices shown.</footer>
+<a class="sticky" href="#list">Join the Priority List</a><footer style="padding-bottom:90px">MOCKUP ONLY. Drone footage is free stock (Mixkit), not the actual site. All home and aerial images are AI-generated concepts. No prices shown.</footer>
 <script>{const q=new URLSearchParams(location.search);if(q.has("p"))window.__p=+q.get("p");if(q.has("nohero"))document.addEventListener("DOMContentLoaded",()=>hero.style.display="none")}
 const N=80,fr=[],cv=document.getElementById('cv'),cx=cv.getContext('2d'),aer=document.getElementById('aer'),tg=document.getElementById('tg');
 for(let i=1;i<=N;i++){const im=new Image();im.src='f'+String(i).padStart(3,'0')+'.jpg';fr.push(im)}
-function draw(p){cv.width=innerWidth;cv.height=innerHeight;const k=Math.min(N-1,Math.floor(Math.min(p/.6,1)*(N-1))),im=fr[k];
+function draw(p){const dpr=Math.min(devicePixelRatio||1,2);if(cv.width!=innerWidth*dpr||cv.height!=innerHeight*dpr){cv.width=innerWidth*dpr;cv.height=innerHeight*dpr};const k=Math.min(N-1,Math.floor(Math.min(p/.6,1)*(N-1))),im=fr[k];
 if(im.complete&&im.naturalWidth){const s=Math.max(cv.width/im.naturalWidth,cv.height/im.naturalHeight);cx.drawImage(im,(cv.width-im.naturalWidth*s)/2,(cv.height-im.naturalHeight*s)/2,im.naturalWidth*s,im.naturalHeight*s)}
 const a=Math.max(0,Math.min(1,(p-.55)/.15));aer.style.opacity=a;aer.style.transform='scale('+(1.25-.25*Math.min(1,(p-.55)/.45>0?(p-.55)/.45:0))+')';
 tg.textContent=a>.5?'CONCEPT, AI-GENERATED':'STOCK DRONE FOOTAGE, NOT LAKE CONROE';
