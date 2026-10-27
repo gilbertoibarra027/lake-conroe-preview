@@ -27,9 +27,10 @@ section{padding:100px 8vw}.eyebrow{color:var(--gold);letter-spacing:3px;font-siz
 form{max-width:640px;margin:30px auto 0;display:grid;gap:12px}input,select{padding:14px;border-radius:8px;border:1px solid #2c4560;background:#13263b;color:#fff;font:15px Inter}
 footer{padding:30px 8vw;font-size:12px;opacity:.6}
 
+.sticky{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;background:var(--gold);color:var(--navy);text-align:center;padding:15px;border-radius:40px;font-weight:600;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.4)}
 .burger{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
 @media(max-width:760px){
-nav{padding:14px 18px}nav b{font-size:12px;letter-spacing:2px}
+nav{padding:14px 18px;background:rgba(13,27,42,.92);backdrop-filter:blur(6px)}nav b{font-size:12px;letter-spacing:2px}
 nav div{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;background:rgba(13,27,42,.97);padding:10px 18px 18px}
 nav div.open{display:flex}nav div a{margin:10px 0;font-size:16px}nav .cta{text-align:center}
 .burger{display:block}
@@ -37,7 +38,8 @@ nav div.open{display:flex}nav div a{margin:10px 0;font-size:16px}nav .cta{text-a
 .cap{left:20px;right:20px;bottom:12svh}.cap h1{font-size:38px}.cap p{font-size:16px}
 .btn{display:block;text-align:center;padding:16px}
 section{padding:64px 20px}h2{font-size:28px}
-.tag{font-size:9px;letter-spacing:1px;top:8px;right:8px}
+.tag{font-size:9px;letter-spacing:1px;top:auto;bottom:8px;right:8px}
+#stage .tag{top:66px;bottom:auto}
 .dd{aspect-ratio:4/3}#ddr{height:36px}
 .map,.design{grid-template-columns:1fr;gap:18px}
 .lot{width:8%;font-size:10px}
@@ -45,7 +47,6 @@ section{padding:64px 20px}h2{font-size:28px}
 input,select{font-size:16px}
 .sticky{display:block}
 }
-.sticky{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;background:var(--gold);color:var(--navy);text-align:center;padding:15px;border-radius:40px;font-weight:600;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.4)}
 </style></head><body>
 <nav><b>LAKE CONROE COLLECTION</b><button class="burger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">&#9776;</button><div onclick="this.classList.remove('open')"><a href="#map">Lot Map</a><a href="#design">Models</a><a href="#area">The Area</a><a class="cta" href="#list">Join Priority List</a></div></nav>
 <div id="hero"><div id="stage"><canvas id="cv"></canvas><img id="aer" src="aerial.jpg"><div class="shade"></div><span class="tag" id="tg">STOCK DRONE FOOTAGE, NOT LAKE CONROE</span>
