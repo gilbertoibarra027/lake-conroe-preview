@@ -1,5 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Build Your Home | The French Quarter on Lake Conroe (Mockup)</title>
+<meta name="description" content="Build your home at The French Quarter on Lake Conroe: pick one of five one-story plans, then choose elevation, garage and options. Concept demo.">
+<meta property="og:type" content="website"><meta property="og:site_name" content="The French Quarter on Lake Conroe"><meta property="og:title" content="Build Your Home | The French Quarter on Lake Conroe (Mockup)"><meta property="og:description" content="Pick a plan and options for your home at The French Quarter on Lake Conroe. Concept demo."><meta property="og:image" content="plan-retreat-b.webp"><meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0d1b2a;--gold:#c9a45c;--panel:#13263b;--line:#2c4560}*{box-sizing:border-box}html{overflow-x:clip}body{margin:0;font-family:Inter,sans-serif;background:var(--navy);color:#fff;overflow-x:clip}
@@ -60,7 +62,7 @@ main{padding:76px 0 30px}.head,.stepper,#s1{padding-left:20px;padding-right:20px
 .cfg{display:block}.pv{position:sticky;top:55px;z-index:10;background:var(--navy);padding:0 0 10px}
 .stage{border-radius:0;box-shadow:none}.pvcap{padding:0 20px;margin-top:8px}.pvcap b{font-size:16px}
 .sheet{margin:6px 12px 0;padding:20px 18px}.sheet h2{font-size:23px}
-.nb{position:sticky;bottom:0;margin:22px -18px -20px;padding:12px 18px;background:rgba(19,38,59,.97);border-top:1px solid var(--line);border-radius:0 0 16px 16px}
+.nb{position:fixed;left:0;right:0;bottom:0;z-index:25;margin:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#13263b;border-top:1px solid var(--line);border-radius:0;box-shadow:0 -6px 18px rgba(0,0,0,.35)}.sheet{margin-bottom:96px}
 select{font-size:16px}.sw{gap:6px}.sw button{width:54px;font-size:11px}.sw button i{width:42px;height:42px}
 footer{padding:24px 20px 40px}
 }
@@ -94,7 +96,7 @@ footer{padding:24px 20px 40px}
 <p class="note">Options marked &ldquo;saved, no preview&rdquo; are added to your build summary; the rendering doesn&rsquo;t change for them.</p></div>
 <div id="s3" hidden><div class="eyebrow">STEP 3 OF 4</div><h2>Interior</h2><p class="help">Choose your cabinet finish and plan options.</p>
 <div id="g-int"></div>
-<p class="note" id="intnote">Interior renderings are from the St. Charles Retreat. Concept imagery, not a finished home.</p></div>
+<p class="note" id="intnote">Interior renderings are from the St. Charles and St. Charles Retreat; the architect hasn&rsquo;t published interiors for this plan yet. Concept imagery, not a finished home.</p></div>
 <div id="s4" hidden><div class="eyebrow">STEP 4 OF 4</div><h2>Love what you built?</h2><p class="help">Save your build and join the Priority List. We&rsquo;ll reach out with availability and next steps for your home at The French Quarter on Lake Conroe.</p>
 <ul class="sum" id="sum"></ul>
 <div class="grp"><div>Preferred homesite <span>optional</span></div><select id="lot"><option value="">No preference yet</option></select></div>
@@ -102,7 +104,7 @@ footer{padding:24px 20px 40px}
 <div class="nb"><button class="btn ghost" id="back" type="button">Back</button><button class="btn" id="next" type="button">Next</button></div>
 </div></section>
 </main>
-<footer><svg class="star" aria-hidden="true"><use href="#st"/></svg> The French Quarter on Lake Conroe. MOCKUP ONLY. Configurator is a demo. Renderings are concept images from the architect&rsquo;s design portfolio (City Design &amp; Plans); interiors are from the St. Charles Retreat and shown for every plan. Plan options and specs are subject to change. Nothing is saved to a server. No prices shown.</footer>
+<footer><svg class="star" aria-hidden="true"><use href="#st"/></svg> The French Quarter on Lake Conroe. MOCKUP ONLY. Configurator is a demo. Renderings are concept images from the architect&rsquo;s design portfolio (City Design &amp; Plans); interiors are the architect&rsquo;s St. Charles and St. Charles Retreat renderings and are shown for every plan. Plan options and specs are subject to change. Nothing is saved to a server. No prices shown.</footer>
 <script>
 const P='',KEY='lcBuild',SOON='Specs coming soon';
 const CAB=['Cabinets',[['Walnut','int-04','#5e4030'],['Cream with marble','int-06','#e9dfc9'],['White with marble','int-05','#f4f2ee']]];
@@ -169,22 +171,22 @@ function apply(){const m=mod();if(!m)return;
  document.querySelectorAll('[data-g]').forEach(row=>{const id=row.dataset.g;[...row.children].forEach((b,i)=>{b.classList.toggle('on',i===val(id));b.setAttribute('aria-pressed',i===val(id))});const l=$('l-'+id);const g=groups().find(x=>x[0]===id);if(l&&g)l.textContent=g[2][val(id)]});
  if($('mat'))$('mat').textContent=materials();
  const ext=S.view==='ext';hide($('ext'),!ext);hide($('int'),ext);
- $('ptag').innerHTML=ext?'ARCHITECT RENDERING &middot; CONCEPT':(m.k==='retreat'?'ARCHITECT RENDERING &middot; CONCEPT':'RETREAT INTERIOR &middot; CONCEPT');
+ $('ptag').innerHTML=ext?'ARCHITECT RENDERING &middot; CONCEPT':(m.k==='retreat'||m.k==='stcharles'?'ARCHITECT RENDERING &middot; CONCEPT':'ST. CHARLES INTERIOR &middot; CONCEPT');
  document.querySelectorAll('#view button').forEach(b=>b.classList.toggle('on',b.dataset.v===S.view));
  $('pvname').textContent=m.n;$('pvsub').textContent=ext?m.elev[e][0]+' exterior':CAB[1][c][0]+' cabinets';renderSum()}
 document.querySelectorAll('#view button').forEach(b=>b.onclick=()=>{S.view=b.dataset.v;apply()});
-function lines(){const m=mod(),L=[['Model',m.n],['Specs',m.specs?m.specs[0]:SOON]];
+function lines(){const m=mod(),L=[['Community','The French Quarter on Lake Conroe'],['Model',m.n],['Specs',m.specs?m.specs[0]:SOON]];
  if(m.elev.length===1)L.push(['Elevation',m.elev[0][0]]);
  groups().forEach(g=>L.push([g[1],g[2][val(g[0])]]));
  L.splice(L.findIndex(x=>x[0]==='Garage'),0,['Exterior materials',materials()]);return L}
 function renderSum(){if(!mod())return;$('sum').innerHTML=lines().map(([a,b])=>'<li><span>'+esc(a)+'</span><b>'+esc(b)+'</b></li>').join('')}
 function save(){try{localStorage.setItem(KEY,JSON.stringify({state:Object.assign({},S,{step:undefined,max:undefined}),summary:mod()?summary():''}))}catch(e){}}
-function summary(){return lines().slice(2).map(([a,b])=>a+': '+b).join('; ')}
+function summary(){return lines().slice(3).map(([a,b])=>a+': '+b).join('; ')}
 function go(n,scroll){S.step=n;S.max=Math.max(S.max,n);$('s1').hidden=n!==1;$('cfg').hidden=n===1;
  ['s2','s3','s4'].forEach((id,i)=>$(id).hidden=n!==i+2);
  if(n===2)S.view='ext';if(n===3)S.view='int';
  document.querySelectorAll('#stepper li').forEach((li,i)=>{li.classList.toggle('on',i+1===n);li.classList.toggle('done',i+1<n||(i+1<=S.max&&i+1!==n));li.querySelector('button').disabled=i>0&&!mod();li.querySelector('button').setAttribute('aria-current',i+1===n?'step':'false')});
- $('next').textContent=n===4?'Save my build':'Next';if(mod())$('intnote').hidden=S.m==='retreat';apply();
+ $('next').textContent=n===4?'Save my build':'Next';if(mod())$('intnote').hidden=S.m==='retreat'||S.m==='stcharles';apply();
  if(scroll!==false)window.scrollTo({top:0,behavior:'smooth'})}
 document.querySelectorAll('#stepper button').forEach(b=>b.onclick=()=>{const n=+b.dataset.s;if(n===1||mod())go(n)});
 function pick(k){if(S.m!==k){S.m=k;S.sel={}}document.querySelectorAll('.mcard').forEach(x=>x.classList.toggle('sel',x.dataset.m===k));build();save();go(2)}
