@@ -1,0 +1,197 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Build Your Home | The French Quarter on Lake Conroe (Mockup)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0d1b2a;--gold:#c9a45c;--panel:#13263b;--line:#2c4560}*{box-sizing:border-box}html{overflow-x:clip}body{margin:0;font-family:Inter,sans-serif;background:var(--navy);color:#fff;overflow-x:clip}
+h1,h2,h3{font-family:'Playfair Display',serif;margin:0}
+.tag{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.6);border:1px solid var(--gold);color:var(--gold);font:600 11px Inter;letter-spacing:2px;padding:4px 8px;border-radius:4px;z-index:5}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 40px;background:rgba(13,27,42,.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(201,164,92,.18)}
+nav b{letter-spacing:3px;font-size:14px}nav b a{color:#fff;text-decoration:none}nav a{color:#fff;text-decoration:none;margin-left:22px;font-size:13px}nav .cta{background:var(--gold);color:var(--navy);padding:9px 16px;border-radius:30px;font-weight:600}
+.btn{display:inline-block;background:var(--gold);color:var(--navy);padding:14px 26px;border-radius:40px;font:600 15px Inter;text-decoration:none;border:0;cursor:pointer}
+.btn.ghost{background:transparent;color:#fff;border:1px solid var(--line)}.btn:disabled{opacity:.4;cursor:default}
+.eyebrow{color:var(--gold);letter-spacing:3px;font-size:12px;font-weight:600}
+.star{display:inline-block;width:.9em;height:.9em;fill:var(--gold);vertical-align:-.1em}
+main{padding:96px 6vw 60px;max-width:1400px;margin:0 auto}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}.head h1{font-size:48px;line-height:1.1;margin-top:6px}.head p{margin:8px 0 0;opacity:.85;font-size:17px}
+.demo{display:inline-block;border:1px solid var(--gold);color:var(--gold);font:600 11px Inter;letter-spacing:2px;padding:6px 10px;border-radius:4px;text-transform:uppercase;background:rgba(0,0,0,.25)}
+.stepper{list-style:none;display:flex;gap:0;margin:28px 0 24px;padding:0;counter-reset:s}
+.stepper li{flex:1;position:relative}.stepper button{width:100%;background:none;border:0;color:#8ea3ba;font:600 13px Inter;cursor:pointer;padding:0 0 12px;text-align:left;border-bottom:3px solid var(--line);display:flex;align-items:center;gap:8px}
+.stepper button i{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;border:1px solid var(--line);font-size:12px;flex:0 0 auto}
+.stepper .done button{color:#fff;border-color:rgba(201,164,92,.5)}.stepper .done i{background:rgba(201,164,92,.18);border-color:var(--gold);color:var(--gold)}
+.stepper .on button{color:#fff;border-color:var(--gold)}.stepper .on i{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.stepper button:disabled{cursor:default}
+.models{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.mcard{display:block;padding:0;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;color:#fff;cursor:pointer;font:15px Inter;transition:border-color .2s,transform .2s}
+.mcard:hover,.mcard.sel{border-color:var(--gold);transform:translateY(-3px)}.mcard:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.mcard .ph{display:block;position:relative;aspect-ratio:16/10;background:#0a1522}.mcard img{display:block;width:100%;height:100%;object-fit:cover}
+.mcard .tag{top:auto;bottom:8px;right:8px;font-size:9px;letter-spacing:1px;padding:3px 6px}
+.mcard .bd{display:block;padding:20px 22px 22px}.mcard b{display:block;font:600 26px 'Playfair Display',serif}.mcard small{display:block;color:var(--gold);font:600 11px Inter;letter-spacing:1.5px;margin:6px 0 10px;text-transform:uppercase}
+.mcard q{display:block;opacity:.85;line-height:1.5;quotes:none}.mcard .go{display:inline-block;margin-top:16px;color:var(--gold);font-weight:600;font-size:14px}
+.cfg{display:grid;grid-template-columns:minmax(0,3fr) minmax(320px,2fr);gap:28px;align-items:start}
+.pv{position:sticky;top:84px}
+.stage{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#0a1522;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s}.stage img.off{opacity:0}
+.stage .tag{top:auto;bottom:10px;right:10px;font-size:9px;letter-spacing:1px;padding:3px 6px}
+.view{position:absolute;top:10px;left:10px;z-index:6;display:flex;background:rgba(13,27,42,.8);border:1px solid var(--line);border-radius:30px;padding:3px}
+.view button{background:none;border:0;color:#fff;font:600 12px Inter;padding:6px 12px;border-radius:30px;cursor:pointer}.view button.on{background:var(--gold);color:var(--navy)}
+.pvcap{display:flex;justify-content:space-between;gap:10px;margin-top:12px;font-size:13px;opacity:.85}.pvcap b{font:600 18px 'Playfair Display',serif;opacity:1}
+.sheet{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
+.sheet h2{font-size:26px}.sheet .help{opacity:.8;margin:6px 0 4px;font-size:14px;line-height:1.5}
+.grp{margin-top:22px}.grp>div:first-child{display:flex;justify-content:space-between;font-size:13px;font-weight:600;letter-spacing:.5px}.grp>div:first-child span{color:var(--gold);font-weight:400}
+.sw{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.sw button{display:flex;flex-direction:column;align-items:center;gap:6px;width:66px;background:none;border:0;color:#cfd9e4;font:12px Inter;cursor:pointer;padding:0}
+.sw button i{display:block;width:46px;height:46px;border-radius:50%;border:2px solid var(--line);box-shadow:inset 0 -6px 10px rgba(0,0,0,.18)}
+.sw button.on{color:#fff}.sw button.on i{border-color:var(--gold);box-shadow:0 0 0 3px var(--navy),0 0 0 5px var(--gold)}
+.sw button:focus-visible i{outline:2px solid #fff;outline-offset:3px}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.seg button{flex:1 1 auto;background:var(--navy);color:#fff;border:1px solid var(--line);padding:11px 12px;border-radius:30px;cursor:pointer;font:600 13px Inter}.seg button.on{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.nb{display:flex;gap:10px;margin-top:26px}.nb .btn{flex:1;text-align:center;padding:13px 16px}
+.sum{list-style:none;padding:0;margin:16px 0 0;border-top:1px solid var(--line)}.sum li{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}.sum li span{opacity:.7}.sum li b{text-align:right;font-weight:600}
+select{width:100%;margin-top:10px;padding:13px;border-radius:8px;border:1px solid var(--line);background:var(--navy);color:#fff;font:15px Inter}
+.fine{font-size:12px;opacity:.6;line-height:1.5;margin-top:14px}
+.note{font-size:12px;opacity:.65;margin-top:12px;line-height:1.5}
+footer{padding:30px 6vw 40px;font-size:12px;opacity:.6;max-width:1400px;margin:0 auto}
+[hidden]{display:none!important}
+@media(max-width:1024px){.models{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){
+nav{padding:14px 18px}nav b{font-size:12px;letter-spacing:2px}nav .back{display:none}nav a{margin-left:10px}nav .cta{padding:8px 13px;font-size:12px}
+main{padding:76px 0 30px}.head,.stepper,#s1{padding-left:20px;padding-right:20px}.head h1{font-size:34px}.head p{font-size:15px}
+.stepper{margin:20px 0 16px}.stepper button{flex-direction:column;align-items:center;text-align:center;font-size:11px;gap:5px;padding-bottom:9px}
+.models{grid-template-columns:1fr;gap:16px}.mcard:hover,.mcard.sel{transform:none}.mcard b{font-size:24px}
+.cfg{display:block}.pv{position:sticky;top:55px;z-index:10;background:var(--navy);padding:0 0 10px}
+.stage{border-radius:0;box-shadow:none}.pvcap{padding:0 20px;margin-top:8px}.pvcap b{font-size:16px}
+.sheet{margin:6px 12px 0;padding:20px 18px}.sheet h2{font-size:23px}
+.nb{position:sticky;bottom:0;margin:22px -18px -20px;padding:12px 18px;background:rgba(19,38,59,.97);border-top:1px solid var(--line);border-radius:0 0 16px 16px}
+select{font-size:16px}.sw{gap:6px}.sw button{width:54px;font-size:11px}.sw button i{width:42px;height:42px}
+footer{padding:24px 20px 40px}
+}
+
+.mcard .feat{position:absolute;top:10px;left:10px;background:var(--gold);color:var(--navy);font:600 10px Inter;letter-spacing:1.5px;padding:4px 8px;border-radius:4px;text-transform:uppercase;z-index:5}
+.mcard ul{list-style:none;padding:0;margin:4px 0 0;font-size:13px;line-height:1.45}.mcard li{padding:3px 0;border-bottom:1px solid rgba(44,69,96,.6);display:flex;gap:7px}.mcard li .star{width:.75em;height:.75em;margin-top:.3em;flex:0 0 auto}
+.mcard .soon{display:inline-block;margin-top:4px;border:1px dashed var(--gold);color:var(--gold);font:600 12px Inter;letter-spacing:1px;padding:7px 10px;border-radius:6px;text-transform:uppercase}
+.mcard q{margin-top:12px;font-size:14px}
+.fixed{margin-top:10px;background:var(--navy);border:1px solid var(--line);border-radius:30px;padding:11px 16px;font:600 13px Inter;color:#dfe7ef}
+.np{font-weight:400;font-size:11px;letter-spacing:.3px;color:#8ea3ba!important;margin-left:6px}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="st" viewBox="0 0 24 24"><path d="M12.00,1.60 14.59,9.04 22.46,9.20 16.18,13.96 18.47,21.50 12.00,17.00 5.53,21.50 7.82,13.96 1.54,9.20 9.41,9.04Z"/></symbol></svg>
+<nav><b><a href="index.html">THE FRENCH QUARTER</a></b><div><a class="back" href="index.html">&larr; On Lake Conroe</a><a class="cta" href="index.html#list">Priority List</a></div></nav>
+<main>
+<div class="head"><div><div class="eyebrow">THE FRENCH QUARTER ON LAKE CONROE &middot; BUILD YOURS</div><h1>Build Your Home</h1><p>Pick your plan, choose your elevation and options, and see the architect&rsquo;s renderings.</p></div><span class="demo" id="demo">Demo: concept options, not final selections</span></div>
+<ol class="stepper" id="stepper"><li><button data-s="1"><i>1</i>Model</button></li><li><button data-s="2"><i>2</i>Exterior</button></li><li><button data-s="3"><i>3</i>Interior</button></li><li><button data-s="4"><i>4</i>Summary</button></li></ol>
+
+<section id="s1" aria-label="Choose your plan">
+<div class="models" id="models"></div></section>
+
+<section id="cfg" class="cfg" hidden aria-label="Configure your home">
+<div class="pv"><div class="stage" id="stage">
+<div class="view" id="view"><button data-v="ext" class="on">Exterior</button><button data-v="int">Interior</button></div>
+<div id="ext"></div><div id="int" hidden></div>
+<span class="tag" id="ptag">ARCHITECT RENDERING &middot; CONCEPT</span></div>
+<div class="pvcap"><b id="pvname"></b><span id="pvsub">Exterior</span></div></div>
+
+<div class="sheet" id="sheet">
+<div id="s2"><div class="eyebrow">STEP 2 OF 4</div><h2>Exterior</h2><p class="help">Elevation, garage and accent options from the architect&rsquo;s plan portfolio.</p>
+<div id="g-ext"></div>
+<p class="note">Options marked &ldquo;saved, no preview&rdquo; are added to your build summary; the rendering doesn&rsquo;t change for them.</p></div>
+<div id="s3" hidden><div class="eyebrow">STEP 3 OF 4</div><h2>Interior</h2><p class="help">Choose your cabinet finish and plan options.</p>
+<div id="g-int"></div>
+<p class="note" id="intnote">Interior renderings are from the St. Charles Retreat. Concept imagery, not a finished home.</p></div>
+<div id="s4" hidden><div class="eyebrow">STEP 4 OF 4</div><h2>Love what you built?</h2><p class="help">Save your build and join the Priority List. We&rsquo;ll reach out with availability and next steps for your home at The French Quarter on Lake Conroe.</p>
+<ul class="sum" id="sum"></ul>
+<div class="grp"><div>Preferred homesite <span>optional</span></div><select id="lot"><option value="">No preference yet</option></select></div>
+<p class="fine">Designs are for illustration only. Final options, availability, and pricing are confirmed with our sales team.</p></div>
+<div class="nb"><button class="btn ghost" id="back" type="button">Back</button><button class="btn" id="next" type="button">Next</button></div>
+</div></section>
+</main>
+<footer><svg class="star" aria-hidden="true"><use href="#st"/></svg> The French Quarter on Lake Conroe. MOCKUP ONLY. Configurator is a demo. Renderings are concept images from the architect&rsquo;s design portfolio (City Design &amp; Plans); interiors are from the St. Charles Retreat and shown for every plan. Plan options and specs are subject to change. Nothing is saved to a server. No prices shown.</footer>
+<script>
+const P='',KEY='lcBuild',SOON='Specs coming soon';
+const CAB=['Cabinets',[['Walnut','int-04','#5e4030'],['Cream with marble','int-06','#e9dfc9'],['White with marble','int-05','#f4f2ee']]];
+const YN=['No','Yes'];
+const MODELS=[
+{k:'retreat',n:'The St. Charles Retreat',feat:1,img:'plan-retreat-b',specs:null,q:'Made for multi-generational living, with a guest suite for visitors, parents or adult children.',
+ elev:[['Modern Craftsman','plan-retreat-a','Brick with siding accent'],['Modern French Country','plan-retreat-b','Stucco with stone accent'],['Texas Hill Country','plan-retreat-c','Stucco with stone accent']],
+ garage:['Standard garage','Extra garage bay (optional)'],accent:null,
+ opts:[['Wine / beverage bar',['No','Yes, in lieu of closet']],['Coffee / beverage bar in primary suite',YN]]},
+{k:'decatur',n:'The Decatur',feat:1,img:'plan-decatur',q:'Open great room, kitchen and dining, with a covered rear patio for lake-country evenings.',
+ specs:['2,902 sq ft living','3 bed','2 full + 1 half bath','2-car oversized garage','69\u2032-0\u2033 W \u00d7 64\u2032-11\u2033 D','Front porch 167 sq ft','Covered rear patio 223 sq ft','Flex: lounge into formal dining or bed 4'],
+ elev:[['Modern French Country','plan-decatur','Stucco']],garage:['2-car, oversized'],accent:['Stone','Brick'],
+ opts:[['Flex room',['Lounge','Formal dining','Bedroom 4']]]},
+{k:'chartres',n:'The Chartres',feat:1,img:'plan-chartres',q:'A dramatic vaulted great room and a flex retreat you can open to the great room or the primary suite.',
+ specs:['2,498 sq ft living','3 bed','2 full + 1 half bath','2-car garage, optional 3-car','54\u2032-0\u2033 (2-car) / 66\u2032-0\u2033 (3-car) W \u00d7 71\u2032-0\u2033 D','Front porch 56 sq ft','Covered rear patio 265 sq ft','Flex: retreat, study or lounge'],
+ elev:[['Transitional Spanish','plan-chartres','Stucco']],garage:['2-car','3-car (optional)'],accent:null,
+ opts:[['Flex / retreat door',['From great room','From primary bedroom']]]},
+{k:'stcharles',n:'The St. Charles',img:'plan-stcharles-a',specs:null,q:'Three elevations to choose from, with a private study and a flexible lounge.',
+ elev:[['Modern Craftsman','plan-stcharles-a','Brick with siding accent'],['Modern French Country','plan-stcharles-b','Stucco with stone accent'],['Texas Hill Country','plan-stcharles-c','Stucco with stone accent']],
+ garage:['Standard garage','Extra garage bay (optional)'],accent:null,
+ opts:[['Study',['Private study','Extra bedroom with bath']],['Wine / beverage bar',['No','Yes, in lieu of closet']],['Coffee / beverage bar in primary suite',YN]]},
+{k:'dauphine',n:'The Dauphine',img:'plan-dauphine',q:'A vaulted great room and a long covered rear patio, in a smart, easy footprint.',
+ specs:['2,419 sq ft living','3 bed','2 full + 1 half bath','2-car garage, optional 3-car','58\u2032-0\u2033 (2-car) / 69\u2032-0\u2033 (3-car) W \u00d7 69\u2032-5\u2033 D','Front porch 77 sq ft','Covered rear patio 291 sq ft','Flex: open lounge into doored study'],
+ elev:[['Modern French Country','plan-dauphine','Stucco']],garage:['2-car','3-car (optional)'],accent:['Stone','Brick'],
+ opts:[['Lounge / study',['Open lounge','Doored study']],['Secondary baths',['Shared bath','Ensuite bath in both bedrooms']]]}];
+const S={m:null,step:1,max:1,view:'ext',sel:{},lot:''};
+const $=id=>document.getElementById(id),hide=(el,h)=>el.toggleAttribute('hidden',!!h),esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const mod=()=>MODELS.find(x=>x.k===S.m);
+try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v&&v.state&&typeof v.state.m==='string'&&MODELS.some(x=>x.k===v.state.m))Object.assign(S,v.state,{step:1,max:1})}catch(e){}
+// model cards
+$('models').innerHTML=MODELS.map(m=>'<button class="mcard" type="button" data-m="'+m.k+'"><span class="ph"><img src="'+P+m.img+'-sm.webp" alt="'+m.n+', architect rendering" loading="lazy" decoding="async" width="640" height="360">'+(m.feat?'<span class="feat">Featured</span>':'')+'<span class="tag">ARCHITECT RENDERING</span></span><span class="bd"><b>'+m.n+'</b><small>'+m.elev.map(e=>e[0]).join(' &middot; ')+'</small>'+
+ (m.specs?'<ul>'+m.specs.map(s=>'<li><svg class="star" aria-hidden="true"><use href="#st"/></svg>'+esc(s)+'</li>').join('')+'</ul>':'<span class="soon">'+SOON+'</span>')+
+ '<q>'+m.q+'</q><span class="go">Start with this plan &rarr;</span></span></button>').join('');
+// lot select
+for(let i=1;i<=13;i++){const o=document.createElement('option');o.value=i;o.textContent='Homesite '+i+' (Phase '+(i<4?1:i<7?2:3)+')';$('lot').appendChild(o)}
+$('lot').value=S.lot;$('lot').onchange=()=>{S.lot=$('lot').value;save();renderSum()};
+// option groups for current model: [id,label,choices,where,preview]
+function groups(){const m=mod();if(!m)return[];const g=[];
+ if(m.elev.length>1)g.push(['elev','Elevation',m.elev.map(e=>e[0]),'ext',1]);
+ g.push(['garage','Garage',m.garage,'ext',0]);
+ if(m.accent)g.push(['accent','Accent veneer',m.accent,'ext',0]);
+ m.opts.forEach((o,i)=>g.push(['o'+i,o[0],o[1],'int',0]));
+ g.push(['cab',CAB[0],CAB[1].map(c=>c[0]),'int',1,'sw']);return g}
+function val(id){return S.sel[id]|0}
+function materials(){const m=mod(),e=m.elev[val('elev')];return m.accent?e[2]+' with '+m.accent[val('accent')].toLowerCase()+' accent':e[2]}
+function build(){['ext','int'].forEach(w=>{const box=$('g-'+w);box.innerHTML='';
+ if(w==='ext'){const m=mod();if(m.elev.length===1)box.insertAdjacentHTML('beforeend','<div class="grp"><div>Elevation</div><div class="fixed">'+m.elev[0][0]+'</div></div>')}
+ groups().filter(g=>g[3]===w).forEach(([id,label,ch,,pv,kind])=>{const d=document.createElement('div');d.className='grp';
+  d.innerHTML='<div>'+esc(label)+(pv?'':'<span class="np">saved, no preview</span>')+' <span id="l-'+id+'"></span></div>';
+  const row=document.createElement('div');row.className=kind==='sw'?'sw':'seg';row.dataset.g=id;
+  if(ch.length===1){row.className='fixed';row.textContent=ch[0]}else ch.forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',c);
+   if(kind==='sw'){const sw=document.createElement('i');sw.style.background=CAB[1][i][2];b.appendChild(sw);b.appendChild(document.createTextNode(c))}else b.textContent=c;
+   b.onclick=()=>{S.sel[id]=i;S.view=w;apply();save()};row.appendChild(b)});
+  d.appendChild(row);box.appendChild(d)});
+ if(w==='ext')box.insertAdjacentHTML('beforeend','<div class="grp"><div>Exterior materials</div><div class="fixed" id="mat"></div></div>')})}
+const layers={};
+function layer(box,name,src){let im=layers[name];if(!im){im=new Image();im.alt='';im.decoding='async';im.className='off';im.onload=()=>{if(im.dataset.want==='1')im.classList.remove('off')};layers[name]=im;$(box).appendChild(im)}
+ if(src){im.dataset.want='1';if(im.getAttribute('src')!==src)im.src=src;else if(im.complete)im.classList.remove('off')}else{im.dataset.want='0';im.classList.add('off')}}
+function apply(){const m=mod();if(!m)return;
+ const e=val('elev');m.elev.forEach((x,i)=>layer('ext','e-'+m.k+i,i===e?P+x[1]+'.webp':null));
+ Object.keys(layers).filter(n=>n[0]==='e'&&!n.startsWith('e-'+m.k)).forEach(n=>layer('ext',n,null));
+ const c=val('cab');CAB[1].forEach((x,i)=>layer('int','c'+i,S.view==='int'&&i===c?P+x[1]+'.webp':null));
+ if(layers['e-'+m.k+e])layers['e-'+m.k+e].alt=m.n+', '+m.elev[e][0]+' elevation, architect rendering';if(layers['c'+c])layers['c'+c].alt='Kitchen and great room with '+CAB[1][c][0].toLowerCase()+' cabinets, architect rendering';
+ document.querySelectorAll('[data-g]').forEach(row=>{const id=row.dataset.g;[...row.children].forEach((b,i)=>{b.classList.toggle('on',i===val(id));b.setAttribute('aria-pressed',i===val(id))});const l=$('l-'+id);const g=groups().find(x=>x[0]===id);if(l&&g)l.textContent=g[2][val(id)]});
+ if($('mat'))$('mat').textContent=materials();
+ const ext=S.view==='ext';hide($('ext'),!ext);hide($('int'),ext);
+ $('ptag').innerHTML=ext?'ARCHITECT RENDERING &middot; CONCEPT':(m.k==='retreat'?'ARCHITECT RENDERING &middot; CONCEPT':'RETREAT INTERIOR &middot; CONCEPT');
+ document.querySelectorAll('#view button').forEach(b=>b.classList.toggle('on',b.dataset.v===S.view));
+ $('pvname').textContent=m.n;$('pvsub').textContent=ext?m.elev[e][0]+' exterior':CAB[1][c][0]+' cabinets';renderSum()}
+document.querySelectorAll('#view button').forEach(b=>b.onclick=()=>{S.view=b.dataset.v;apply()});
+function lines(){const m=mod(),L=[['Model',m.n],['Specs',m.specs?m.specs[0]:SOON]];
+ if(m.elev.length===1)L.push(['Elevation',m.elev[0][0]]);
+ groups().forEach(g=>L.push([g[1],g[2][val(g[0])]]));
+ L.splice(L.findIndex(x=>x[0]==='Garage'),0,['Exterior materials',materials()]);return L}
+function renderSum(){if(!mod())return;$('sum').innerHTML=lines().map(([a,b])=>'<li><span>'+esc(a)+'</span><b>'+esc(b)+'</b></li>').join('')}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({state:Object.assign({},S,{step:undefined,max:undefined}),summary:mod()?summary():''}))}catch(e){}}
+function summary(){return lines().slice(2).map(([a,b])=>a+': '+b).join('; ')}
+function go(n,scroll){S.step=n;S.max=Math.max(S.max,n);$('s1').hidden=n!==1;$('cfg').hidden=n===1;
+ ['s2','s3','s4'].forEach((id,i)=>$(id).hidden=n!==i+2);
+ if(n===2)S.view='ext';if(n===3)S.view='int';
+ document.querySelectorAll('#stepper li').forEach((li,i)=>{li.classList.toggle('on',i+1===n);li.classList.toggle('done',i+1<n||(i+1<=S.max&&i+1!==n));li.querySelector('button').disabled=i>0&&!mod();li.querySelector('button').setAttribute('aria-current',i+1===n?'step':'false')});
+ $('next').textContent=n===4?'Save my build':'Next';if(mod())$('intnote').hidden=S.m==='retreat';apply();
+ if(scroll!==false)window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('#stepper button').forEach(b=>b.onclick=()=>{const n=+b.dataset.s;if(n===1||mod())go(n)});
+function pick(k){if(S.m!==k){S.m=k;S.sel={}}document.querySelectorAll('.mcard').forEach(x=>x.classList.toggle('sel',x.dataset.m===k));build();save();go(2)}
+document.querySelectorAll('.mcard').forEach(c=>c.onclick=()=>pick(c.dataset.m));
+$('back').onclick=()=>go(S.step-1);
+$('next').onclick=()=>{if(S.step<4)return go(S.step+1);save();
+ const q=new URLSearchParams({model:mod().n,build:summary()});if(S.lot)q.set('lot',S.lot);location.href='index.html?'+q.toString()+'#list'};
+{const q=new URLSearchParams(location.search).get('model');if(q&&MODELS.some(x=>x.k===q)){pick(q)}else{if(mod()){document.querySelector('.mcard[data-m="'+S.m+'"]').classList.add('sel');build()}go(1,false)}}
+</script>
+</body></html>
