@@ -2,6 +2,10 @@
 <title>The French Quarter on Lake Conroe (Mockup)</title>
 <meta name="description" content="The French Quarter on Lake Conroe: 13 new one-story homes in Willis, Texas, released in three phases. Five plans by City Design &amp; Plans. Concept mockup.">
 <meta property="og:type" content="website"><meta property="og:site_name" content="The French Quarter on Lake Conroe"><meta property="og:title" content="The French Quarter on Lake Conroe (Mockup)"><meta property="og:description" content="13 new one-story homes near Lake Conroe in Willis, Texas. Concept mockup."><meta property="og:image" content="hero-end.webp"><meta property="og:image:alt" content="The French Quarter on Lake Conroe, architect rendering"><meta name="twitter:card" content="summary_large_image">
+<!-- Hero LCP = video poster (first frame). Media queries must match the <picture> sources and HERO_MQ in the hero script -->
+<link rel="preload" href="video/lcq_hero_desktop_1280x720_poster.webp" as="image" type="image/webp" fetchpriority="high" media="(min-width: 761px) and (orientation: landscape)">
+<link rel="preload" href="video/lcq_hero_mobile_720x1280_poster.webp" as="image" type="image/webp" fetchpriority="high" media="(max-width: 760px), (orientation: portrait)">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0d1b2a;--gold:#c9a45c}*{box-sizing:border-box}body{margin:0;font-family:Inter,sans-serif;background:var(--navy);color:#fff}
@@ -9,11 +13,26 @@ h1,h2,h3{font-family:'Playfair Display',serif;margin:0}
 .tag{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.6);border:1px solid var(--gold);color:var(--gold);font:600 11px Inter;letter-spacing:2px;padding:4px 8px;border-radius:4px;z-index:5}
 nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px 40px;background:linear-gradient(rgba(0,0,0,.55),transparent)}
 nav b{letter-spacing:3px;font-size:14px}nav a{color:#fff;text-decoration:none;margin-left:22px;font-size:13px}nav .cta{background:var(--gold);color:var(--navy);padding:9px 16px;border-radius:30px;font-weight:600}
-#hero{height:500vh;position:relative}#stage{position:sticky;top:0;height:100vh;overflow:hidden}
-#cv,#aer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}#aer{opacity:0}
-.shade{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(13,27,42,.85))}
-.cap{position:absolute;left:8vw;bottom:16vh;max-width:640px;opacity:0;transition:opacity .4s,transform .4s;transform:translateY(20px)}
-.cap.on{opacity:1;transform:none}.cap h1{font-size:64px;line-height:1.05}.cap p{font-size:19px;opacity:.9}
+/* hero: full-bleed looping video, poster = first frame = LCP (pattern from the Fly Presidential build) */
+.hero{position:relative;padding:0;height:100vh;height:100svh;min-height:600px;max-height:1100px;overflow:hidden;background:#0d1b2a}
+.hero__media{position:absolute;inset:0;overflow:hidden}
+.hero__media picture,.hero__media img{display:block;width:100%;height:100%}
+.hero__poster{object-fit:cover;object-position:50% 50%}
+.hero__vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;opacity:0;transition:opacity .9s ease;pointer-events:none}
+.hero.is-video .hero__vid{opacity:1}
+.hero__shade{position:absolute;inset:0;background:linear-gradient(100deg,rgba(13,27,42,.86) 0%,rgba(13,27,42,.6) 34%,rgba(13,27,42,.12) 58%,rgba(13,27,42,0) 70%),linear-gradient(180deg,rgba(13,27,42,.45) 0%,rgba(13,27,42,0) 22%,rgba(13,27,42,0) 60%,rgba(13,27,42,.7) 100%)}
+.hero .tag{top:auto;bottom:22px;right:22px}
+.hero__in{position:relative;z-index:2;height:100%;max-width:1440px;margin:0 auto;padding:110px 8vw 9vh;display:flex;flex-direction:column;justify-content:flex-end}
+.hero__copy{max-width:640px}
+.hero .qbrand{font-size:12px;letter-spacing:3px;margin-bottom:16px;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.hero h1{font-size:clamp(46px,6vw,84px);line-height:1.02;text-shadow:0 2px 30px rgba(5,12,24,.45)}
+.hero__lede{font-size:19px;line-height:1.55;opacity:.94;max-width:520px;margin:18px 0 0;text-shadow:0 1px 14px rgba(0,0,0,.45)}
+.hero__act{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:12px}
+.hero__act .btn{margin-top:14px}
+.hero__link{color:#fff;font-weight:600;text-decoration:none;margin-top:14px;border-bottom:1px solid var(--gold);padding-bottom:3px}.hero__link:hover{color:var(--gold)}
+.hero__note{font-size:13px;opacity:.82;margin:18px 0 0;max-width:460px;line-height:1.5}
+@media(prefers-reduced-motion:no-preference){.hero__copy{animation:heroUp .9s cubic-bezier(.2,.7,.2,1) .15s both}}
+@keyframes heroUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 .btn{display:inline-block;background:var(--gold);color:var(--navy);padding:14px 26px;border-radius:40px;font-weight:600;text-decoration:none;margin-top:14px}
 section{padding:100px 8vw}.eyebrow{color:var(--gold);letter-spacing:3px;font-size:12px;font-weight:600}
 .dd{position:relative;max-width:1100px;margin:30px auto 0;aspect-ratio:16/9;border-radius:14px;overflow:hidden}
@@ -29,7 +48,6 @@ section{padding:100px 8vw}.eyebrow{color:var(--gold);letter-spacing:3px;font-siz
 .card .mt{display:block;margin-top:8px;font-size:13px;opacity:.85;line-height:1.6}.card small{color:var(--gold);font-size:10px;letter-spacing:1px;font-weight:600}
 .badge{flex:0 0 auto;font:600 10px Inter;letter-spacing:1px;padding:4px 9px;border-radius:20px;text-transform:uppercase}.badge.now{background:var(--gold);color:var(--navy)}.badge.soon{border:1px solid #4f7cac;color:#9fc0e0}
 .lotnote{margin:18px 0 0;font-size:13px;opacity:.75}.lotnote a{color:var(--gold)}
-#stickyEnd{position:absolute;left:0;width:1px;top:408vh;bottom:0;pointer-events:none}
 .sticky{transition:opacity .25s,transform .25s}.sticky.hide,.sticky.away{opacity:0;transform:translateY(24px);pointer-events:none}
 .panel{background:#13263b;border-radius:14px;padding:28px}.legend span{display:inline-block;margin-right:14px;font-size:13px}.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
 .models{display:flex;gap:12px;margin:24px 0}.models button,.opts button{background:#13263b;color:#fff;border:1px solid #2c4560;padding:12px 18px;border-radius:30px;cursor:pointer;font:600 14px Inter}
@@ -46,7 +64,6 @@ footer{padding:30px 8vw;font-size:12px;opacity:.6}
 
 .star{display:inline-block;width:.9em;height:.9em;fill:var(--gold);vertical-align:-.1em}
 .divider{display:flex;align-items:center;gap:14px;max-width:360px;margin:0 auto;padding:0 20px;font-size:14px}.divider:before,.divider:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,164,92,.55))}.divider:after{background:linear-gradient(90deg,rgba(201,164,92,.55),transparent)}
-.cap .wm{position:absolute;width:320px;height:320px;left:-60px;top:-90px;z-index:-1;fill:#e8e2d0;opacity:0;transition:opacity 1.4s .3s;pointer-events:none}.cap{isolation:isolate}.cap.on .wm{opacity:.14}
 .spec{display:inline-block;margin-right:16px;white-space:nowrap}.spec .star{width:.7em;height:.7em;margin-right:6px;vertical-align:0}
 .lifehead{display:grid;grid-template-columns:3fr 2fr;gap:48px;align-items:center}.lifehead p{font-size:17px;line-height:1.7;opacity:.9;max-width:620px}
 .txmap{position:relative;width:100%;max-width:330px;justify-self:center}.txmap svg{display:block;width:100%;height:auto}
@@ -72,18 +89,18 @@ nav{padding:14px 18px;background:rgba(13,27,42,.92);backdrop-filter:blur(6px)}na
 nav div{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;background:rgba(13,27,42,.97);padding:10px 18px 18px}
 nav div.open{display:flex}nav div a{margin:10px 0;font-size:16px}nav .cta{text-align:center}
 .burger{display:block}
-#hero{height:400vh}#stage{height:100svh}
-.cap{left:20px;right:20px;bottom:12svh}.cap h1{font-size:38px}.cap p{font-size:16px}
+.hero{min-height:620px}.hero__in{padding:90px 20px calc(36px + env(safe-area-inset-bottom))}.hero h1{font-size:clamp(38px,11vw,48px)}.hero__lede{font-size:16px;margin-top:12px}.hero .qbrand{font-size:10px;letter-spacing:1.2px;margin-bottom:10px}
+.hero__shade{background:linear-gradient(180deg,rgba(13,27,42,.55) 0%,rgba(13,27,42,0) 20%,rgba(13,27,42,0) 34%,rgba(13,27,42,.72) 58%,rgba(13,27,42,.94) 100%)}
+.hero__act{gap:4px;margin-top:6px}.hero__act .btn{width:100%}.hero__link{margin:14px auto 0}.hero__note{font-size:12px;margin-top:14px;text-align:center}
 .btn{display:block;text-align:center;padding:16px}
 section{padding:64px 20px}h2{font-size:28px}
 .tag{font-size:9px;letter-spacing:1px;top:auto;bottom:8px;right:8px}
-#stage .tag{top:66px;bottom:auto}
+.hero .tag{top:66px;bottom:auto;right:8px}
 .dd{aspect-ratio:4/3}#ddr{height:36px}
 .design,.lifehead{grid-template-columns:1fr;gap:18px}
 .tiles{grid-template-columns:1fr;gap:14px;margin-top:28px}.tile{padding:22px 20px 18px}.lifehead p{font-size:16px}.txmap{max-width:280px}
 .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:4px 20px 12px;scroll-padding:0 20px;overscroll-behavior-x:contain;scrollbar-width:none}.cards::-webkit-scrollbar{display:none}
 .card{flex:0 0 78%;max-width:320px;scroll-snap-align:start}.card:hover,.card.sel{transform:none}
-#stickyEnd{top:331vh}
 .models{overflow-x:auto;gap:8px}.models button{flex:0 0 auto;padding:10px 14px;font-size:13px}
 input,select{font-size:16px}
 .sticky{display:block}
@@ -107,17 +124,36 @@ input,select{font-size:16px}
 @media(max-width:760px){.plans{grid-template-columns:1fr;gap:16px}.gal{grid-template-columns:1fr 1fr;gap:8px}.gal a.lead,.gal a:last-child{grid-column:1/-1;grid-row:auto}.gal .cp{font-size:11px;padding:18px 8px 6px}.vid{border-radius:10px}nav b{font-size:11px;letter-spacing:1.5px}}
 .vg{margin-top:26px}.vg h3{font:600 22px "Playfair Display",serif;margin:0 0 12px}.vg h3 small{font:400 13px Inter,sans-serif;opacity:.7;margin-left:8px}.vrow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.vrow a{position:relative;display:block;border-radius:10px;overflow:hidden;aspect-ratio:16/9;background:#13263b}.vrow img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}.vrow a:hover img{transform:scale(1.04)}.vrow .cp{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;font-size:12px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.75))}.card .ex{display:block;font-size:11px;opacity:.65;margin-top:4px;line-height:1.35}
 @media(max-width:760px){.vrow{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:80%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}.vrow a{scroll-snap-align:start}.sticky{padding:12px;bottom:calc(10px + env(safe-area-inset-bottom))}}
-@media(prefers-reduced-motion:reduce){.cap,.cap .wm{transition:none}}
+@media(prefers-reduced-motion:reduce){.hero__vid{transition:none}}
 .smap{overflow-x:auto;margin:18px 0 6px;-webkit-overflow-scrolling:touch}.smap svg{display:block;width:100%;min-width:720px;height:auto}.smap .n{font:600 20px "Playfair Display",serif;fill:#fff;text-anchor:middle}.smap .n.g{fill:#7d8a99}.smap .p{font:600 9px Inter;fill:#c9a45c;letter-spacing:1px;text-anchor:middle}.smap .v{font:500 9px Inter;fill:#9aa6b4}.smap .rd{font:600 11px Inter;fill:#c9a45c;letter-spacing:3px;text-anchor:middle}.smap .ew{font:600 9px Inter;fill:#8fa0b3;letter-spacing:1.5px}.smap .sl{cursor:pointer}.smap .sl:hover rect,.smap .sl:focus rect,.smap .sl.on rect{fill:rgba(201,164,92,.55)}.smap .sl:focus{outline:none}.smcap{font-size:13px;opacity:.8;margin:0 0 16px;line-height:1.7}.smcap .lg{display:inline-flex;align-items:center;gap:5px;margin-left:10px;white-space:nowrap}.smcap i{width:12px;height:12px;border-radius:2px;display:inline-block}.smcap i.a{background:rgba(201,164,92,.28);border:1px solid #c9a45c}.smcap i.b{background:#13263b;border:1px solid #c9a45c}.smcap i.c{background:#2a3644;border:1px dashed #4a5868}
 .smap svg{min-width:860px}.smap .pn{font:600 7.5px Inter;fill:#e8dcc0;text-anchor:middle;letter-spacing:.3px}.smap .ul{font:600 8.5px Inter;fill:#d98c5f;letter-spacing:1.4px}.smap image{transition:opacity .2s}.smap .sl:hover image,.smap .sl.on image{opacity:.85}.smap{border-radius:10px;border:1px solid #2c4560;position:relative}.smcap i.u{height:0;border-top:2px dashed #d98c5f;border-radius:0}.smcap .concept{color:var(--gold);font-weight:600}.rexcap:empty{display:none}.smtip{position:fixed;z-index:50;pointer-events:none;background:#0a1522;border:1px solid #c9a45c;border-radius:8px;padding:6px;width:170px;font:12px Inter;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.5)}.smtip img{width:100%;border-radius:4px;display:block;margin-bottom:4px}.swipe{display:none}@media(max-width:860px){.swipe{display:inline;color:var(--gold)}}.card .ex{display:block;margin-top:2px}</style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="st" viewBox="0 0 24 24"><path d="M12.00,1.60 14.59,9.04 22.46,9.20 16.18,13.96 18.47,21.50 12.00,17.00 5.53,21.50 7.82,13.96 1.54,9.20 9.41,9.04Z"/></symbol><symbol id="tx" viewBox="0 0 308 292"><path vector-effect="non-scaling-stroke" d="M114.5,4.0 155.9,4.0 155.9,55.8 157.7,55.5 162.8,60.7 165.6,59.8 172.9,60.1 174.5,65.2 179.1,64.9 184.1,67.3 188.6,67.0 190.5,69.2 193.4,66.7 197.8,67.8 199.7,70.8 202.9,71.2 204.7,74.9 208.7,71.4 214.1,73.4 216.1,75.6 218.7,74.6 220.6,78.0 226.3,71.9 228.0,75.0 233.0,75.0 237.7,76.9 239.5,79.3 244.0,75.2 248.9,73.9 251.1,75.3 256.5,72.7 257.8,74.1 263.7,74.3 265.2,71.9 271.1,74.6 273.3,77.7 282.1,80.6 284.5,83.1 289.0,81.8 292.2,82.9 292.2,97.1 292.2,124.5 297.2,130.4 297.4,136.2 303.6,147.1 304.0,152.8 301.6,159.7 299.4,162.4 300.1,166.1 298.5,168.9 300.2,174.0 294.9,183.5 296.9,186.2 293.1,186.3 281.2,190.0 276.9,187.9 276.2,183.5 273.2,186.6 271.1,185.9 269.9,189.7 272.3,191.3 272.7,196.3 268.4,201.5 261.5,208.1 247.8,215.2 246.4,214.0 242.2,215.8 242.1,214.1 236.5,215.3 233.9,211.9 232.2,212.7 238.2,219.6 233.9,221.8 229.7,220.4 229.1,225.3 224.0,230.3 218.7,239.5 215.3,249.1 212.8,248.4 212.2,251.9 214.8,251.0 213.6,258.1 211.8,258.4 211.7,262.3 213.8,264.5 214.4,272.6 216.9,275.4 217.6,280.5 219.6,285.0 212.6,287.8 209.7,284.3 204.3,283.0 197.2,283.3 191.0,278.9 186.4,278.4 182.9,274.9 178.1,273.7 174.9,270.4 172.7,262.3 168.6,257.5 169.1,253.4 167.2,249.0 167.8,245.2 165.0,240.9 162.6,240.5 158.7,236.7 157.4,231.9 154.1,227.5 149.2,223.8 146.8,215.8 144.5,213.6 141.5,207.1 140.5,201.8 137.7,198.0 132.8,194.7 131.6,192.3 127.1,190.3 123.6,184.4 113.6,183.1 107.6,183.4 102.5,181.3 101.3,184.1 95.8,185.0 91.7,190.6 89.2,199.5 87.8,199.6 84.7,204.9 80.9,205.1 75.3,201.0 61.1,194.4 58.4,190.9 52.9,187.5 49.0,179.9 48.7,173.0 44.8,167.4 44.0,162.6 41.5,159.5 32.6,155.0 27.8,148.8 23.9,146.6 19.8,141.4 14.0,138.6 10.0,131.6 6.6,130.1 4.0,127.0 4.6,124.4 85.8,124.4 85.8,97.6 86.3,70.5 86.4,4.0 87.3,4.0 114.5,4.0Z"/></symbol></svg>
 <nav><b>THE FRENCH QUARTER</b><button class="burger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">&#9776;</button><div onclick="this.classList.remove('open')"><a href="#map">Homesites</a><a href="#design">Models</a><a href="#retreat">Gallery</a><a href="#life">Life Here</a><a href="build.html">Build Yours</a><a class="cta" href="#list">Join Priority List</a></div></nav>
-<div id="hero"><div id="stage"><canvas id="cv"></canvas><img id="aer" src="hero-retreat-front-sm.webp" alt="Architect rendering of the St. Charles Retreat, front elevation, The French Quarter on Lake Conroe" width="960" height="540" decoding="async" fetchpriority="high" style="opacity:1;object-position:37% 60%"><div class="shade"></div><span class="tag" id="tg">ARCHITECT RENDERING · CONCEPT</span>
-<div class="cap" data-a="0" data-b=".22"><div class="qbrand">The French Quarter on Lake Conroe</div><h1>Be First at Lake Conroe</h1><p>13 new one-story homes, released in three phases.</p></div>
-<div class="cap" data-a=".25" data-b=".47"><h1>Step Inside the St. Charles Retreat</h1><p>Through the front door and into the home. Architect renderings, concept only.</p></div>
-<div class="cap" data-a=".5" data-b=".74"><h1>13 Homes. 3 Releases.</h1><p>Three homes in Phase 1, three in Phase 2, seven in Phase 3.</p></div>
-<div class="cap" data-a=".77" data-b="1.1"><svg class="wm" viewBox="0 0 24 24" aria-hidden="true"><use href="#st"/></svg><h1>Phase 1 Is Only 3 Homes</h1><p>Get pricing and floor plans before the public release.</p><a class="btn" href="#list">Join the Priority List</a></div>
-</div><div id="stickyEnd" aria-hidden="true"></div></div>
+<section class="hero" id="hero" aria-labelledby="hero-title">
+  <div class="hero__media" aria-hidden="true">
+    <!-- Poster = first frame of the loop and is the LCP image. The hero script injects the <source> after window "load"; skipped under prefers-reduced-motion or Save-Data (poster only). -->
+    <!-- Footage: architect rendering of the St. Charles Retreat front (dusk), slow AI push-in, played forward then reversed so it loops seamlessly. Concept only. -->
+    <picture>
+      <source media="(max-width: 760px), (orientation: portrait)" srcset="video/lcq_hero_mobile_720x1280_poster.webp" type="image/webp" width="720" height="1280">
+      <source media="(max-width: 760px), (orientation: portrait)" srcset="video/lcq_hero_mobile_720x1280_poster.jpg" width="720" height="1280">
+      <source srcset="video/lcq_hero_desktop_1280x720_poster.webp" type="image/webp" width="1280" height="720">
+      <img class="hero__poster" src="video/lcq_hero_desktop_1280x720_poster.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
+    </picture>
+    <video class="hero__vid" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback tabindex="-1"></video>
+  </div>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <span class="tag">ARCHITECT RENDERING · CONCEPT</span>
+  <div class="hero__in">
+    <div class="hero__copy">
+      <div class="qbrand">The French Quarter on Lake Conroe · Willis, TX</div>
+      <h1 id="hero-title">Be First at <span style="white-space:nowrap">Lake Conroe</span></h1>
+      <p class="hero__lede">13 new one-story homes on one street, released in three phases. Phase 1 is only 3 homes.</p>
+      <div class="hero__act"><a class="btn" href="#list">Join the Priority List</a><a class="hero__link" href="#map">See the Homesites</a></div>
+      <p class="hero__note">Priority List members get pricing and floor plans before the public release.</p>
+    </div>
+  </div>
+  <p style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Background: architect rendering of the St. Charles Retreat, front elevation at dusk. Concept only.</p>
+</section>
 <section id="daydusk"><div class="eyebrow">DAY TO DUSK &middot; THE CHARTRES</div><h2>Drag to watch the evening come on</h2>
 <div class="dd"><img src="dd-chartres-day-sm.webp" srcset="dd-chartres-day-sm.webp 800w, dd-chartres-day.webp 1600w" sizes="(max-width:1100px) 100vw, 1100px" alt="The Chartres by day at The French Quarter on Lake Conroe, architect rendering" loading="lazy" decoding="async" width="1600" height="900"><div id="duskW"><img src="dd-chartres-dusk-sm.webp" srcset="dd-chartres-dusk-sm.webp 800w, dd-chartres-dusk.webp 1600w" sizes="(max-width:1100px) 100vw, 1100px" alt="The Chartres at dusk, architect rendering" loading="lazy" decoding="async" width="1600" height="900"></div><span class="tag">ARCHITECT RENDERINGS &middot; CONCEPT</span></div><input type="range" id="ddr" min="0" max="100" value="50" aria-label="Day to dusk"><p class="vcap">The Chartres, day and dusk renderings from the architect (landscaping differs slightly between the two).</p></section>
 <section id="map"><div class="eyebrow">THE HOMESITES</div><h2>Pick your homesite</h2>
@@ -177,40 +213,25 @@ input,select{font-size:16px}
 <select><option>Timeline (optional)</option><option>0 to 3 months</option><option>3 to 6 months</option><option>6+ months</option></select>
 <select><option>Working with an agent? (optional)</option><option>Yes</option><option>No</option></select><input type="hidden" name="community" value="The French Quarter on Lake Conroe"><button class="btn" style="border:0;cursor:pointer">Join the Priority List</button></form></section>
 <a class="sticky" id="stk" href="#list">Join the Priority List</a><footer style="padding-bottom:calc(96px + env(safe-area-inset-bottom))"><div class="txbadge"><svg viewBox="0 0 308 292" aria-hidden="true"><use href="#tx" class="txo" style="stroke-width:1.5px;fill:none"/><use href="#st" x="150" y="105" width="90" height="90" style="fill:var(--gold)"/></svg>Proudly built in Montgomery County, Texas.</div><b style="font:600 16px 'Playfair Display',serif;color:#fff;display:block;margin-bottom:8px">The French Quarter on Lake Conroe</b>MOCKUP ONLY. All home renderings, interiors and the walkthrough video are concept images from the architect&rsquo;s design portfolio and website (City Design &amp; Plans), not finished homes. Plans shown on the site plan and homesite cards are artist&rsquo;s concept placement, final plan and placement chosen by each buyer. Plan specs come from the architect&rsquo;s plan table and are subject to change. Texas outline from public-domain U.S. Census data. No prices shown.</footer>
-<script>{const q=new URLSearchParams(location.search);if(q.has("p"))window.__p=+q.get("p");if(q.has("nohero"))document.addEventListener("DOMContentLoaded",()=>hero.style.display="none")}
-const HP='';
-let t;const go=()=>{cancelAnimationFrame(t);t=requestAnimationFrame(()=>draw(prog()))};
-const cv=document.getElementById('cv'),cx=cv.getContext('2d'),aer=document.getElementById('aer'),tg=document.getElementById('tg'),RM=matchMedia('(prefers-reduced-motion: reduce)');
-const L=s=>{const i=new Image();i.decoding='async';i.onload=go;i.src=HP+s;return i},EX=L('hero-retreat-front.webp'),BG=L('hero-retreat-bg.webp'),DR=[637,647,774,865],IW=1920,IH=1080;
-/* interiors: entry -> great room -> great room/kitchen/dining -> kitchen; s=start, f=focal point (0..1) */
-const SC=[{s:.2,im:'int-01.webp',f:[.7,.6]},{s:.6,im:'int-04.webp',f:[.47,.55]},{s:.76,im:'int-05.webp',f:[.62,.55]},{s:.9,im:'int-06.webp',f:[.5,.6]}],FD=.06;
-let lz=0;function loadInt(){if(lz)return;lz=1;SC.forEach(c=>c.i=L(c.im))}
-const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),ez=t=>t*t*(3-2*t);
-function cover(im,W,H,z,f){if(!im||!im.complete||!im.naturalWidth)return 0;const w=im.naturalWidth,h=im.naturalHeight,s=Math.max(W/w,H/h)*z,dw=w*s,dh=h*s,
- x=cl(W/2-f[0]*dw,W-dw,0),y=cl(H/2-f[1]*dh,H-dh,0);cx.drawImage(im,x,y,dw,dh);return 1}
-function interiors(p,W,H,rm){let n=0;for(let k=0;k<SC.length;k++){const c=SC[k],nx=SC[k+1]?SC[k+1].s+FD:1.02;if(p<c.s&&k>0)break;
- const a=k==0?1:(rm?(p>=c.s?1:0):ez(cl((p-c.s)/FD)));if(a<=0)continue;const z=rm?1:1+.22*cl((p-Math.max(c.s,k==0?.45:c.s))/(nx-c.s));
- cx.globalAlpha=a;if(cover(c.i,W,H,z,c.f))n++;cx.globalAlpha=1}return n}
-function draw(p){const dpr=Math.min(devicePixelRatio||1,2),W=Math.round(innerWidth*dpr),H=Math.round(innerHeight*dpr);if(cv.width!=W||cv.height!=H){cv.width=W;cv.height=H}
- const rm=RM.matches;cx.fillStyle='#0d1b2a';cx.fillRect(0,0,W,H);
- if(!EX.complete||!EX.naturalWidth)return;
- /* exterior push-in toward the front door (p 0..0.45) */
- const u=cl(p/.45),cov=Math.max(W/IW,H/IH),s0=Math.min(cov,1.12*W/IW),sD=Math.max(1.3*H/(DR[3]-DR[1]),1.25*W/(DR[2]-DR[0])),e=rm?(p<.3?0:1):Math.pow(u,1.6),
-  s=s0*Math.pow(sD/s0,e),dcx=(DR[0]+DR[2])/2,dcy=(DR[1]+DR[3])/2,m=rm?e:ez(cl(u*1.4)),
-  c0x=980,c0y=540,cxp=c0x+(dcx-c0x)*m,cyp=c0y+(dcy-c0y)*m,ay=H*(s<cov?.4+.1*m:.5);
- let x=W/2-cxp*s,y=ay-cyp*s;if(m<1){if(IW*s>=W)x=cl(x,W-IW*s,0);if(IH*s>=H)y=cl(y,H-IH*s,0)}
- const d=[x+DR[0]*s,y+DR[1]*s,x+DR[2]*s,y+DR[3]*s],through=d[0]<=0&&d[1]<=0&&d[2]>=W&&d[3]>=H,ia=rm?(p<.3?0:1):ez(cl((u-.3)/.35));
- if(p>.08)loadInt();
- if(!through){if(IH*s<H&&BG.complete&&BG.naturalWidth){cover(BG,W,H,1,[.5,.5]);cx.fillStyle='rgba(13,27,42,.45)';cx.fillRect(0,0,W,H)}cx.drawImage(EX,x,y,IW*s,IH*s);
-  if(ia>0){cx.save();cx.beginPath();cx.rect(d[0],d[1],d[2]-d[0],d[3]-d[1]);cx.clip();cx.globalAlpha=ia;interiors(p,W,H,rm);
-   /* warm light spilling out as the doors open */
-   const g=cx.createRadialGradient((d[0]+d[2])/2,(d[1]+d[3])/2,0,(d[0]+d[2])/2,(d[1]+d[3])/2,Math.max(d[2]-d[0],d[3]-d[1]));g.addColorStop(0,'rgba(255,226,170,'+(.35*(1-ia))+')');g.addColorStop(1,'rgba(255,226,170,0)');cx.globalAlpha=1;cx.fillStyle=g;cx.fillRect(d[0],d[1],d[2]-d[0],d[3]-d[1]);cx.restore()}}
- else interiors(p,W,H,rm);
- aer.style.opacity=0;tg.textContent='ARCHITECT RENDERING · CONCEPT';
- document.querySelectorAll('.cap').forEach(c=>c.classList.toggle('on',p>=+c.dataset.a&&p<+c.dataset.b))}
-function prog(){if(window.__p!=null)return window.__p;const h=document.getElementById('hero');return Math.max(0,Math.min(1,scrollY/(h.offsetHeight-innerHeight)))}
-addEventListener('scroll',go,{passive:true});addEventListener('resize',go);RM.addEventListener&&RM.addEventListener('change',go);
-go();setTimeout(loadInt,1500);
+<script>
+/* hero video: poster is the LCP; source injected after window load (mirrors the Fly Presidential hero) */
+(function(){const d=document,hero=d.getElementById('hero'),hv=hero&&hero.querySelector('.hero__vid');if(!hv)return;
+const HERO_MQ='(max-width: 760px), (orientation: portrait)'; /* keep in sync with <picture> + preload */
+const conn=navigator.connection||{},skip=matchMedia('(prefers-reduced-motion: reduce)').matches||conn.saveData===true||matchMedia('(prefers-reduced-data: reduce)').matches;
+let heroIn=true,variant=null,failed=false;
+const fail=()=>{failed=true;hero.classList.remove('is-video');hv.removeAttribute('src');while(hv.firstChild)hv.removeChild(hv.firstChild);hv.hidden=true};
+const tryPlay=()=>{if(failed||!variant||!heroIn||d.hidden)return;const pr=hv.play();if(pr&&pr.catch)pr.catch(()=>{})};
+const load=()=>{const m=matchMedia(HERO_MQ).matches,v=m?'m':'d';if(v===variant||failed)return;variant=v;
+ while(hv.firstChild)hv.removeChild(hv.firstChild);const so=d.createElement('source');so.src='video/lcq_hero_'+(m?'mobile_720x1280':'desktop_1280x720')+'.mp4';so.type='video/mp4';so.addEventListener('error',fail);hv.appendChild(so);
+ hv.muted=true;hv.preload='auto';hv.load();tryPlay()};
+hv.addEventListener('playing',()=>hero.classList.add('is-video'));hv.addEventListener('error',fail);
+window.__heroVideo={skip,state:()=>({variant,failed,paused:hv.paused,t:hv.currentTime,src:hv.currentSrc,isVideo:hero.classList.contains('is-video')})};
+if(skip){hv.hidden=true;return}
+const goV=()=>setTimeout(load,0);if(d.readyState==='complete')goV();else addEventListener('load',goV,{once:true});
+const mq=matchMedia(HERO_MQ),onMq=()=>{if(variant){hero.classList.remove('is-video');load()}};if(mq.addEventListener)mq.addEventListener('change',onMq);else if(mq.addListener)mq.addListener(onMq);
+if('IntersectionObserver' in window)new IntersectionObserver(es=>{heroIn=es[0].isIntersecting;if(heroIn)tryPlay();else if(!hv.paused)hv.pause()},{threshold:0}).observe(hero);
+d.addEventListener('visibilitychange',()=>{if(d.hidden){if(!hv.paused)hv.pause()}else tryPlay()});
+})();
 {const tm=document.getElementById('txmap');document.getElementById('pin').onclick=()=>tm.classList.toggle('on')}
 ddr.oninput=e=>duskW.style.clipPath='inset(0 0 0 '+e.target.value+'%)';
 const cardEls=document.querySelectorAll('.card');
@@ -220,7 +241,7 @@ if(fl)fl.value=n;if(fm&&fm.selectedIndex==0)fm.value=c.dataset.mn;
 document.querySelectorAll('.smap .sl').forEach(x=>x.classList.toggle('on',x.dataset.go==n));document.getElementById('lotnote').innerHTML='Homesite '+n+' (Phase '+c.dataset.ph+') is added to your Priority List form. <a href="#list">Continue to the form</a>'});
 document.querySelectorAll('.smap .sl').forEach(g=>{const go=()=>{const c=document.querySelector('.card[data-lot="'+g.dataset.go+'"]');if(!c)return;document.querySelector('#chips button[data-f="0"]').click();c.click();c.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest',inline:'center'})};g.onclick=go;g.onkeydown=e=>{if(e.key=='Enter'||e.key==' '){e.preventDefault();go()}}});
 if('IntersectionObserver' in window){const stk=document.getElementById('stk'),vis=new Set();const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?vis.add(e.target):vis.delete(e.target));stk.classList.toggle('hide',vis.size>0)});
-[document.getElementById('stickyEnd'),document.getElementById('list'),document.querySelector('footer')].forEach(el=>el&&io.observe(el));let ly=scrollY,dn=false;addEventListener('scroll',()=>{const y=scrollY;if(Math.abs(y-ly)>8){dn=y>ly;ly=y;stk.classList.toggle('away',dn)}},{passive:true})}
+[document.getElementById('hero'),document.getElementById('list'),document.querySelector('footer')].forEach(el=>el&&io.observe(el));let ly=scrollY,dn=false;addEventListener('scroll',()=>{const y=scrollY;if(Math.abs(y-ly)>8){dn=y>ly;ly=y;stk.classList.toggle('away',dn)}},{passive:true})}
 document.querySelectorAll('[data-pick]').forEach(a=>a.addEventListener('click',()=>{const fm=document.getElementById('fmod');if(fm)fm.value=a.dataset.pick}));
 
 (function(){const q=new URLSearchParams(location.search),b=q.get('build');if(!b)return;const f=document.querySelector('#list form');if(!f)return;
